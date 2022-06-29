@@ -4,8 +4,17 @@ void main() => runApp(const MaterialApp(
   home: DevCard(),
 ));
 
-class DevCard extends StatelessWidget {
-  const DevCard({Key? key}) : super(key: key);
+class DevCard extends StatefulWidget {
+   const DevCard({Key? key}) : super(key: key);
+
+  @override
+  State<DevCard> createState() => _DevCardState();
+
+}
+
+class _DevCardState extends State<DevCard> {
+
+  int devLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +27,34 @@ class DevCard extends StatelessWidget {
         elevation: 0.0,
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() { //when set state is called it triggers the build function and rebuilds it with the new state.
+            devLevel += 1;
+          });
+        },
+        backgroundColor: Colors.amber,
+        child: const Icon(Icons.add),
+      ),
+
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+                const Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/profile-picture.png'),
+                    radius: 60.0,
+                  ),
+                ),
+
+                const Divider(
+                height: 30.0,
+                color: Colors.grey,
+                ),
+
                 const Text('Name',
                 style: TextStyle(
                   color: Colors.grey,
@@ -38,7 +70,7 @@ class DevCard extends StatelessWidget {
                       fontSize:  28.0,
                       fontWeight: FontWeight.bold,
                     )),
-                const SizedBox(height: 30.0,),
+                const SizedBox(height: 25.0,),
 
                 const Text('Current Developer Level',
                     style: TextStyle(
@@ -48,14 +80,14 @@ class DevCard extends StatelessWidget {
 
                 const SizedBox(height: 5.0,),
 
-                const Text('10',
-                    style: TextStyle(
+                Text('$devLevel',
+                    style: const TextStyle(
                       color: Colors.amber,
                       letterSpacing: 2.0,
                       fontSize:  28.0,
                       fontWeight: FontWeight.bold,
                     )),
-                const SizedBox(height: 30.0,),
+                const SizedBox(height: 10.0,),
 
                 Row(
                   children: const [
@@ -68,7 +100,7 @@ class DevCard extends StatelessWidget {
                       'lambda1@heroku.com',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                       ),
                     ),
                   ],
@@ -81,10 +113,10 @@ class DevCard extends StatelessWidget {
                     ),
                     SizedBox(width: 5.0,),
                     Text(
-                      'lambda1@heroku.com',
+                      'lambdaOfficial',
                       style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                       ),
                     ),
                   ],
@@ -95,3 +127,5 @@ class DevCard extends StatelessWidget {
     );
   }
 }
+
+

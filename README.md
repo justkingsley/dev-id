@@ -4,13 +4,14 @@ A Ninja Tutorial
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Flutter run
 
-A few resources to get you started if this is your first Flutter project:
+## Concepts Learned
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Learning the basics of stateful widgets
+- Learning the basics of stateless widgets
+- Using CircleAvatar
+- Using floatingActionButton to update content on the screen
+- Using image assets
+- Changing state of custom variable using custom floating button
+- Using the setState function
